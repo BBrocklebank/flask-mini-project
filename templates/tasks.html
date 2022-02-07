@@ -16,9 +16,15 @@
               </div>
               <div class="col s9">
                 <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
-                {% if task.is_urgent == 'on' %}
+                {% if task.is_urgent == 'on' and task.is_complete == 'off' %}
                       <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
                           data-position="right" data-tooltip="URGENT!"></i>
+                {% elif task.is_urgent == 'on' and task.is_complete == 'on' %}
+                      <i class="fas fa-check light-green-text tooltipped"
+                          data-position="right" data-tooltip="Complete!"></i>
+                {% elif task.is_urgent == 'off' and task.is_complete == 'on' %}
+                      <i class="fas fa-check light-green-text tooltipped"
+                          data-position="right" data-tooltip="Complete!"></i>
                 {% endif %}
               </div>
             </div>

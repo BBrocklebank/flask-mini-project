@@ -127,11 +127,14 @@ def add_task():
 def edit_task(task_id):
     if request.method == 'POST':
         is_urgent = 'on' if request.form.get('is_urgent') else 'off'
+        is_complete = 'on' if request.form.get('is_complete') else 'off'
+
         submit = {
             'category_name': request.form.get('category_name'),
             'task_name': request.form.get('task_name'),
             'task_description': request.form.get('task_description'),
             'is_urgent': is_urgent,
+            'is_complete': is_complete,
             'due_date': request.form.get('due_date'),
             'created_by': session['user']
         }
